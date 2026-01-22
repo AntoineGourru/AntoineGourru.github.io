@@ -122,11 +122,3 @@ for t in range(epochs):
     train(train_dataloader, model, loss_fn, optimizer)
     test(test_dataloader, model, loss_fn)
 print("Done!")
-
-
-model.eval()
-x, y = test_data[0][0], test_data[0][1]
-with torch.no_grad():
-    pred = model(x)
-    predicted, actual = classes[pred[0].argmax(0)], classes[y]
-    print(f'Prediction: "{predicted}", Vraie Valeure: "{actual}"')
